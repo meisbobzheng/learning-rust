@@ -28,4 +28,48 @@ fn main() {
     let mut mutable_array: [i32; 5] = [1, 2, 3, 4, 5];
     mutable_array[0] = 10;
     println!("The value of a is: {:?}", mutable_array);
+
+    //inline if statement
+    let condition = true;
+    let number = if condition {10} else {20};
+    println!("The value of number is: {}", number);
+
+    // loops
+    let mut counter = 0;
+    let result = loop {
+        counter += 1;
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+    println!("The result is {}", result);
+
+    // loop labels
+    counter = 0;
+    'counting_up: loop {
+        println!("count = {}", counter);
+        let mut remaining = 10;
+        loop {
+            println!("remaining = {}", remaining);
+            if remaining == 9 {
+                break;
+            }
+            if counter == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+        counter += 1;
+    }
+
+    // while loop
+    while counter != 0 {
+        println!("{}!", counter);
+        counter -= 1;
+    }
+
+    // for loop
+    for element in immutable_array {
+        println!("The value is: {}", element);
+    }
 }
